@@ -33,7 +33,7 @@ func main() {
 
     // step 1: build canonical request string
     httpRequestMethod := "POST"
-    canonicalURI := "/"
+    canonicalURI := "/industry-cgi"
     canonicalQueryString := ""
     canonicalHeaders := "content-type:application/json; charset=utf-8\n"
     signedHeaders := "content-type"
