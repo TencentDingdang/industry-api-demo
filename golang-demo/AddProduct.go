@@ -60,9 +60,9 @@ func main() {
     fmt.Println(string2sign)
 
     // step 3: sign string
-    secretDate := hmacsha256(date, "TC3"+secretKey)
+    secretDate := hmacsha256(date, "YXW"+secretKey)
     secretService := hmacsha256(service, secretDate)
-    secretSigning := hmacsha256("tc3_request", secretService)
+    secretSigning := hmacsha256("yxw_request", secretService)
     signature := hex.EncodeToString([]byte(hmacsha256(string2sign, secretSigning)))
     fmt.Println(signature)
 
