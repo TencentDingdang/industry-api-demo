@@ -50,7 +50,7 @@ func main() {
 
     // step 2: build string to sign
     date := time.Unix(timestamp, 0).UTC().Format("2006-01-02")
-    credentialScope := fmt.Sprintf("%s/%s/tc3_request", date, service)
+    credentialScope := fmt.Sprintf("%s/%s/yxw_request", date, service)
     hashedCanonicalRequest := sha256hex(canonicalRequest)
     string2sign := fmt.Sprintf("%s\n%d\n%s\n%s",
         algorithm,
