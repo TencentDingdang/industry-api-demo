@@ -37,11 +37,11 @@ public class TencentCloudAPITC3Demo {
         //String timestamp = "1551113065";
         String timestamp = String.valueOf(System.currentTimeMillis() / 1000);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        // ×¢ÒâÊ±Çø£¬·ñÔòÈİÒ×³ö´í
+        // æ³¨æ„æ—¶åŒºï¼Œå¦åˆ™å®¹æ˜“å‡ºé”™
         sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         String date = sdf.format(new Date(Long.valueOf(timestamp + "000")));
 
-        // ************* ²½Öè 1£ºÆ´½Ó¹æ·¶ÇëÇó´® *************
+        // ************* æ­¥éª¤ 1ï¼šæ‹¼æ¥è§„èŒƒè¯·æ±‚ä¸² *************
         String httpRequestMethod = "POST";
         String canonicalUri = "/industry-cgi";
         String canonicalQueryString = "";
@@ -54,20 +54,20 @@ public class TencentCloudAPITC3Demo {
                 + canonicalHeaders + "\n" + signedHeaders + "\n" + hashedRequestPayload;
         System.out.println(canonicalRequest);
 
-        // ************* ²½Öè 2£ºÆ´½Ó´ıÇ©Ãû×Ö·û´® *************
+        // ************* æ­¥éª¤ 2ï¼šæ‹¼æ¥å¾…ç­¾åå­—ç¬¦ä¸² *************
         String credentialScope = date + "/" + service + "/" + "yxw_request";
         String hashedCanonicalRequest = sha256Hex(canonicalRequest);
         String stringToSign = algorithm + "\n" + timestamp + "\n" + credentialScope + "\n" + hashedCanonicalRequest;
         System.out.println(stringToSign);
 
-        // ************* ²½Öè 3£º¼ÆËãÇ©Ãû *************
+        // ************* æ­¥éª¤ 3ï¼šè®¡ç®—ç­¾å *************
         byte[] secretDate = hmac256(("YXW" + SECRET_KEY).getBytes(UTF8), date);
         byte[] secretService = hmac256(secretDate, service);
         byte[] secretSigning = hmac256(secretService, "yxw_request");
         String signature = DatatypeConverter.printHexBinary(hmac256(secretSigning, stringToSign)).toLowerCase();
         System.out.println(signature);
 
-        // ************* ²½Öè 4£ºÆ´½Ó Authorization *************
+        // ************* æ­¥éª¤ 4ï¼šæ‹¼æ¥ Authorization *************
         String authorization = algorithm + " " + "Credential=" + SECRET_ID + "/" + credentialScope + ", "
                 + "SignedHeaders=" + signedHeaders + ", " + "Signature=" + signature;
         System.out.println(authorization);
@@ -75,7 +75,6 @@ public class TencentCloudAPITC3Demo {
         TreeMap<String, String> headers = new TreeMap<String, String>();
         headers.put("Authorization", authorization);
         headers.put("Content-Type", CT_JSON);
-        headers.put("Host", host);
         headers.put("YXW-Action", action);
         headers.put("YXW-Timestamp", timestamp);
         headers.put("YXW-Version", version);
