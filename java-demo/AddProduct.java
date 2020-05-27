@@ -78,6 +78,7 @@ public class TencentCloudAPITC3Demo {
         headers.put("YXW-Action", action);
         headers.put("YXW-Timestamp", timestamp);
         headers.put("YXW-Version", version);
+        headers.put("YXW-SecretId", SECRET_ID);
 
         StringBuilder sb = new StringBuilder();
         sb.append("curl -X POST https://").append(host).append(canonicalUri)
@@ -86,6 +87,7 @@ public class TencentCloudAPITC3Demo {
         .append(" -H \"YXW-Action: ").append(action).append("\"")
         .append(" -H \"YXW-Timestamp: ").append(timestamp).append("\"")
         .append(" -H \"YXW-Version: ").append(version).append("\"")
+        .append(" -H \"YXW-SecretId: ").append(SECRET_ID).append("\"")    
         .append(" -d '").append(payload).append("'");
         System.out.println(sb.toString());
     }
