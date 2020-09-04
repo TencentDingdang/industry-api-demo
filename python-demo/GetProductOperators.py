@@ -2,7 +2,7 @@
 import hashlib, hmac, json, os, sys, time
 from datetime import datetime
 
-# 密钥参数
+# 密钥参数（此处为无效数据，后续需申请真实secret_id和secret_key）
 secret_id = "AKIDz8krbsJ5yKBZQpn74WFkmLPx3EXAMPLE"
 secret_key = "Gu5t9xGARNpq86cd98joQYCN3EXAMPLE"
 
