@@ -81,6 +81,7 @@ func main() {
  -H "YXW-Action: %s"\
  -H "YXW-Timestamp: %d"\
  -H "YXW-Version: %s"\
- -d '%s'`, host+canonicalURI, authorization, action, timestamp, version, payload)
+ -H "Yxw-SecretId: %s"\
+ -d '%s'`, host+canonicalURI, authorization, action, timestamp, version, secretId, payload)
     fmt.Println(curl)
 }
