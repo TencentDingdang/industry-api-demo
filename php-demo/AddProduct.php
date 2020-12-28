@@ -54,5 +54,6 @@ $curl = "curl -X POST https://".$host.$canonicalUri
     .' -H "YXW-Action: '.$action.'"'
     .' -H "YXW-Timestamp: '.$timestamp.'"'
     .' -H "YXW-Version: '.$version.'"'
+    .' -H "YXW-SecretId: '.$secretId.'"'
     ." -d '".$payload."'";
 echo $curl.PHP_EOL;
