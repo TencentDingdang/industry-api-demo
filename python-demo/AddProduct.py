@@ -68,4 +68,5 @@ print('curl -X POST ' + endpoint + canonical_uri
       + ' -H "YXW-Action: ' + action + '"'
       + ' -H "YXW-Timestamp: ' + str(timestamp) + '"'
       + ' -H "YXW-Version: ' + version + '"'
+      + ' -H "YXW-SecretId: ' + secret_id + '"'
       + " -d '" + payload + "'")
