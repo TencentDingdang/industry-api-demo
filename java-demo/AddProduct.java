@@ -48,7 +48,7 @@ public class TencentCloudAPITC3Demo {
         String canonicalHeaders = "content-type:application/json; charset=utf-8\n";
         String signedHeaders = "content-type";
 
-        String payload = "{\"remark\": "", \"product_name\": \"test1\"}";
+        String payload = "{\"remark\": \"\", \"product_name\": \"test1\"}";
         String hashedRequestPayload = sha256Hex(payload);
         String canonicalRequest = httpRequestMethod + "\n" + canonicalUri + "\n" + canonicalQueryString + "\n"
                 + canonicalHeaders + "\n" + signedHeaders + "\n" + hashedRequestPayload;
